@@ -59,7 +59,7 @@ public class MessageActivity extends AppCompatActivity {
         final int userFromId = getIntent().getExtras().getInt("user_from_id");
         final int userToId = getIntent().getExtras().getInt("user_to_id");
 
-        String uri = "http://10.0.2.2:8000/messages/"+userFromId+"/"+userToId;
+        String uri = "http://10.0.2.2:80/messages/"+userFromId+"/"+userToId;
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 uri,
@@ -103,7 +103,7 @@ public class MessageActivity extends AppCompatActivity {
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST,
-                "http://10.0.2.2:8000/gabriel/messages",
+                "http://10.0.2.2:80/gabriel/messages",
                 jsonMessage,
 
                 new Response.Listener<JSONObject>() {
@@ -130,6 +130,7 @@ public class MessageActivity extends AppCompatActivity {
                     }
                 }
         );
+
 
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
